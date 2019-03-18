@@ -12,3 +12,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+.puree{
+
+  width: 240px;
+  height: 120px;
+  border: 1px solid red;
+  padding: 20px;
+  margin: auto;
+  text-align: center
+}

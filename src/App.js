@@ -1,28 +1,44 @@
-import React, { Component } from 'react';
+import React, { Component }  from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Joke from './UserOutput'
+import UserOutput from './UserOutput';
+import UserInput from './UserInput';
+import {useState} from 'react'
+import { EventEmitter } from 'events';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
 
-export default App;
+ const App = () =>{
+   const [usernames,chngeuser] = useState({
+    username : [
+      {
+        names : 'Vikas'
+      },{
+        names : 'Sahu'
+      }
+    ]
+   })
+ 
+   const changeuser = (event) =>{
+
+   chngeuser({
+    username : [
+      {
+        names : event.target.value
+      },{
+        names : event.target.value
+      }
+    ]
+   })
+   }
+
+   return(
+  <div>
+    <UserOutput name = {usernames.username[0].names}/> 
+    <UserInput x={changeuser} />
+    <UserOutput name = {usernames.username[1].names}/> 
+  </div>
+  )
+ }
+
+export default App
